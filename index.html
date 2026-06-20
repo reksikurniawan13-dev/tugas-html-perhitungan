@@ -6,67 +6,144 @@
     <title>Toserba</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #f5f5f5;
+            background: linear-gradient(135deg, #1f2937, #374151);
+            min-height: 100vh;
         }
 
         .header {
-            background-color: beige;
-            padding: 20px;
+            background-color: #111827   ;
+            padding: 25px;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .header h1 {
             margin: 0;
-            color: #333;
+            color: #d7d7d7;
+            font-size: 32px;
+            letter-spacing: 2px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 0 15px;
         }
 
         .container {
-            width: 300px;
-            margin: 30px auto;
             background-color: white;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 25px;
+            border-radius: 15px;
             text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .container h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 22px;
         }
 
         input {
             width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
+            padding: 11px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #2563eb;
+        }
+
+        .button-group {
+            margin-top: 10px;
         }
 
         button {
-            padding: 8px 12px;
+            padding: 10px 14px;
             border: none;
             color: white;
             cursor: pointer;
-            margin: 3px;
+            margin: 4px;
+            border-radius: 8px;
+            font-weight: bold;
         }
 
         .btnpsn {
-            background-color: green;
+            background-color: #16a34a;
         }
 
         .btnbtl {
-            background-color: red;
+            background-color: #dc2626;
         }
 
         .btnreset {
-            background-color: #555;
+            background-color: #4b5563;
+        }
+
+        button:hover {
+            opacity: 0.85;
         }
 
         #hasil {
-            width: 300px;
-            margin: 20px auto;
+            margin-top: 20px;
+        }
+
+        .invoice {
             background-color: white;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 22px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .invoice h3 {
+            margin-top: 0;
+            margin-bottom: 18px;
+            text-align: center;
+            color: #111827;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 10px;
+        }
+
+        .field {
+            margin-bottom: 12px;
+            text-align: left;
+        }
+
+        .field label {
+            display: block;
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 5px;
             font-weight: bold;
-            line-height: 1.6;
+        }
+
+        .field div {
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            padding: 10px;
+            border-radius: 8px;
+            color: #111827;
+        }
+
+        .field:last-child div {
+            background-color: #dcfce7;
+            border-color: #86efac;
+            color: #166534;
+            font-size: 18px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -76,18 +153,24 @@
         <h1>Toserba</h1>
     </div>
 
-    <div class="container">
-        <input type="text" id="namaPelanggan" placeholder="Nama Pelanggan">
-        <input type="text" id="namaProduk" placeholder="Nama Produk">
-        <input type="text" id="hargaProduk" placeholder="Harga Produk">
-        <input type="text" id="jumlahPembelian" placeholder="Jumlah Pembelian">
+    <div class="wrapper">
+        <div class="container">
+            <h2>Form Pemesanan</h2>
 
-        <button class="btnpsn" onclick="pesan()">Pesan</button>
-        <button class="btnbtl" onclick="batal()">Batal</button>
-        <button class="btnreset" onclick="reset()">Kosongkan</button>
+            <input type="text" id="namaPelanggan" placeholder="Nama Pelanggan">
+            <input type="text" id="namaProduk" placeholder="Nama Produk">
+            <input type="text" id="hargaProduk" placeholder="Harga Produk">
+            <input type="text" id="jumlahPembelian" placeholder="Jumlah Pembelian">
+
+            <div class="button-group">
+                <button class="btnpsn" onclick="pesan()">Pesan</button>
+                <button class="btnbtl" onclick="batal()">Batal</button>
+                <button class="btnreset" onclick="reset()">Kosongkan</button>
+            </div>
+        </div>
+
+        <div id="hasil"></div>
     </div>
-
-    <div id="hasil"></div>
 
     <script src="script.js"></script>
 
