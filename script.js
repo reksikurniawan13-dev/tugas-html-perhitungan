@@ -7,28 +7,51 @@ function pesan() {
     let totalBelanja = hargaProduk * jumlahPembelian;
     let potongan = 0;
 
-    if (totalBelanja >=400000) {
+    if (totalBelanja >= 400000) {
         potongan = 50000;
     }
+
     let totalBayar = totalBelanja - potongan;
 
     document.getElementById("hasil").innerHTML =
-    "Invoice" + "<br>" +
-    "Nama Pelanggan: " + namaPelanggan + "<br>" +
-    "Nama Produk: " + namaProduk + "<br>" +
-    "Total Belanja: " + totalBelanja.toLocaleString("id-ID") + "<br>" +
-    "Potongan: Rp" + potongan.toLocaleString("id-ID") + "<br>" +
-    "Total Bayar: Rp" + totalBayar.toLocaleString("id-ID");
+        "<div class='invoice'>" +
+            "<h3>Invoice</h3>" +
+
+            "<div class='field'>" +
+                "<label>Nama Pelanggan</label>" +
+                "<div>" + namaPelanggan + "</div>" +
+            "</div>" +
+
+            "<div class='field'>" +
+                "<label>Nama Produk</label>" +
+                "<div>" + namaProduk + "</div>" +
+            "</div>" +
+
+            "<div class='field'>" +
+                "<label>Total Belanja</label>" +
+                "<div>Rp " + totalBelanja.toLocaleString("id-ID") + "</div>" +
+            "</div>" +
+
+            "<div class='field'>" +
+                "<label>Potongan</label>" +
+                "<div>Rp " + potongan.toLocaleString("id-ID") + "</div>" +
+            "</div>" +
+
+            "<div class='field'>" +
+                "<label>Total Bayar</label>" +
+                "<div>Rp " + totalBayar.toLocaleString("id-ID") + "</div>" +
+            "</div>" +
+        "</div>";
 }
 
-function batal(){
+function batal() {
     document.getElementById("hasil").innerHTML = "";
 }
 
-function reset(){
-        document.getElementById("namaPelanggan").value = "";
+function reset() {
+    document.getElementById("namaPelanggan").value = "";
     document.getElementById("namaProduk").value = "";
     document.getElementById("hargaProduk").value = "";
     document.getElementById("jumlahPembelian").value = "";
-    document.getElementById("hasil").value = "";
+    document.getElementById("hasil").innerHTML = "";
 }
